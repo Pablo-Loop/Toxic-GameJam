@@ -39,6 +39,9 @@ namespace PiroBros.Managers
         [SerializeField] private GameObject characterSelectPanel;
         [SerializeField] private Button[] characterButtons;
 
+        [Header("Controles Móviles")]
+        [SerializeField] private GameObject mobileControlsPanel; // Panel contenedor de botones táctiles / joystick
+
         [Header("Habilidad")]
         [SerializeField] private TextMeshProUGUI abilityUsesText;
         [SerializeField] private TextMeshProUGUI abilityCooldownText;
@@ -69,6 +72,9 @@ namespace PiroBros.Managers
 
             if (victoryPanel != null)
                 victoryPanel.SetActive(false);
+
+            if (mobileControlsPanel != null)
+                mobileControlsPanel.SetActive(false);
         }
 
         private void Start()
@@ -96,6 +102,10 @@ namespace PiroBros.Managers
             if (characterSelectPanel != null)
                 characterSelectPanel.SetActive(false);
 
+            // Mostrar botones y joystick táctiles al iniciar gameplay
+            if (mobileControlsPanel != null)
+                mobileControlsPanel.SetActive(true);
+
             Managers.GameManager.Instance.StartGame(index);
         }
 
@@ -104,7 +114,10 @@ namespace PiroBros.Managers
             if (characterSelectPanel != null)
                 characterSelectPanel.SetActive(true);
 
-            // Ocultar otros paneles durante la selección
+            // Ocultar controles táctiles y otros paneles durante la selección
+            if (mobileControlsPanel != null)
+                mobileControlsPanel.SetActive(false);
+
             if (gameOverPanel != null)
                 gameOverPanel.SetActive(false);
 
@@ -137,10 +150,10 @@ namespace PiroBros.Managers
         public void UpdateToxicity(float current, float max)
         {
             if (toxicityBarFill != null)
-             toxicityBarFill.fillAmount = current / max;
+                toxicityBarFill.fillAmount = current / max;
 
             if (toxicityText != null)
-            toxicityText.text = $"{Mathf.CeilToInt(current)}%";
+                toxicityText.text = $"{Mathf.CeilToInt(current)}%";
         }
 
         // Muestra el nombre del personaje activo
@@ -155,6 +168,9 @@ namespace PiroBros.Managers
         {
             if (gameOverPanel != null)
                 gameOverPanel.SetActive(true);
+
+            if (mobileControlsPanel != null)
+                mobileControlsPanel.SetActive(false);
         }
 
         // Oculta el panel de Game Over
@@ -169,6 +185,9 @@ namespace PiroBros.Managers
         {
             if (victoryPanel != null)
                 victoryPanel.SetActive(true);
+
+            if (mobileControlsPanel != null)
+                mobileControlsPanel.SetActive(false);
         }
 
         // Oculta el panel de Victoria
@@ -185,7 +204,7 @@ namespace PiroBros.Managers
 
             if (abilityCooldownText != null)
             {
-                if (cooldownLeft <= 0f) 
+                if (cooldownLeft <= 0f)
                     abilityCooldownText.text = "Listo";
                 else
                     abilityCooldownText.text = $"Listo en: {Mathf.CeilToInt(cooldownLeft)}s";
@@ -219,7 +238,7 @@ namespace PiroBros.Managers
             HideGameOver();
             HideVictory();
 
-            // Mostrar selección de personaje para empezar limpio
+            // Mostrar selección de personaje para empezar limpio (esto también ocultará el panel táctil)
             ShowCharacterSelect();
 
             // Resetear el estado del GameManager
