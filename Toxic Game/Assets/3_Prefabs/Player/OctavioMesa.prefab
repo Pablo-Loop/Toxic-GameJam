@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3972046287080620290}
   - component: {fileID: 4847602367299818552}
   - component: {fileID: 1203371160994736436}
+  - component: {fileID: 5663844423440622217}
   m_Layer: 0
   m_Name: OctavioMesa
   m_TagString: Player
@@ -153,7 +154,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &3972046287080620290
@@ -243,6 +244,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   invincibilityDuration: 0.8
+--- !u!114 &5663844423440622217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259185245178421717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9124d47afadb347a03666b49615068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PiroBros.Toxicity.ToxicitySystem
+  maxToxicity: 100
+  currentToxicity: 100
+  drainPerSecond: 5
 --- !u!1 &5096882762767726754
 GameObject:
   m_ObjectHideFlags: 0

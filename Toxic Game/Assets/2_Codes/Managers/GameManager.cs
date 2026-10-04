@@ -137,39 +137,45 @@ namespace PiroBros.Managers
 
         private void HandleNoLives()
         {
-            string currentScene = SceneManager.GetActiveScene().name;
-
-            if (currentScene == SCENE_LEVEL1)
-            {
-                // Mostrar Game Over y esperar al jugador
-                if (UIManager.Instance != null)
-                    UIManager.Instance.ShowGameOver();
-            }
-            else if (currentScene == SCENE_LEVEL2)
-            {
-                level2Attempts++;
-
-                if (level2Attempts >= 2)
-                {
-                    // Game Over definitivo — volver a Nivel 1
-                    level2Attempts = 0;
-                    if (UIManager.Instance != null)
-                        UIManager.Instance.ShowGameOver();
-                }
-                else
-                {
-                    // Primer intento fallido — mostrar panel y esperar
-                    if (UIManager.Instance != null)
-                        UIManager.Instance.ShowGameOver();
-                }
-            }
+            StartCoroutine(RestartCurrentLevel());
         }
 
-        private IEnumerator RespawnCurrentCharacter()
+        private IEnumerator RestartCurrentLevel()
         {
             yield return new WaitForSeconds(0.5f);
+
+            // Restaurar las vidas
+            currentLives = startingLives;
+
+            // El juego vuelve a estar activo
+            isGameActive = true;
+
+            // Recargar la escena actual
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
+        }
+
+       private IEnumerator RespawnCurrentCharacter()
+        {
+             yield return new WaitForSeconds(0.5f);
+
+            if (activeCharacter == null)
+             yield break;
+
+            // Obtener el punto de respawn de la escena actual
+             Vector3 spawnPosition = GetSpawnPosition();
+
+            // Mover al jugador al respawn
+            activeCharacter.transform.position = spawnPosition;
+
+            // Revivir al jugador
             activeCharacter.Revive();
-            UpdateUI();
+
+             // Actualizar la cámara por seguridad
+             if (cameraFollow != null)
+            cameraFollow.SetTarget(activeCharacter.transform);
+
+             UpdateUI();
         }
 
         // ────────────────────────────────────────────────────────────────────

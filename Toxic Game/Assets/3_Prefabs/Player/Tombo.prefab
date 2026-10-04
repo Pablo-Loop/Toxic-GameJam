@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8679483382640573618}
   - component: {fileID: 4183909635257674946}
   - component: {fileID: 4037791351173882248}
+  - component: {fileID: -1503052226905562649}
   m_Layer: 0
   m_Name: Tombo
   m_TagString: Player
@@ -153,7 +154,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &8679483382640573618
@@ -243,6 +244,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   invincibilityDuration: 0.8
+--- !u!114 &-1503052226905562649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423932947999820026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9124d47afadb347a03666b49615068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PiroBros.Toxicity.ToxicitySystem
+  maxToxicity: 100
+  currentToxicity: 100
+  drainPerSecond: 5
 --- !u!1 &1505471828728095810
 GameObject:
   m_ObjectHideFlags: 0
