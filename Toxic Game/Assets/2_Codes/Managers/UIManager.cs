@@ -21,6 +21,10 @@ namespace PiroBros.Managers
         [Header("Vidas")]
         [SerializeField] private TextMeshProUGUI livesText;
 
+        [Header("Toxicidad")]
+        [SerializeField] private Image toxicityBarFill;
+        [SerializeField] private TextMeshProUGUI toxicityText;
+
         [Header("Personaje")]
         [SerializeField] private TextMeshProUGUI characterNameText;
 
@@ -127,6 +131,16 @@ namespace PiroBros.Managers
         {
             if (livesText != null)
                 livesText.text = $"Vidas: {lives}";
+        }
+
+        // Actualiza la barra de toxicidad
+        public void UpdateToxicity(float current, float max)
+        {
+            if (toxicityBarFill != null)
+             toxicityBarFill.fillAmount = current / max;
+
+            if (toxicityText != null)
+            toxicityText.text = $"{Mathf.CeilToInt(current)}%";
         }
 
         // Muestra el nombre del personaje activo
