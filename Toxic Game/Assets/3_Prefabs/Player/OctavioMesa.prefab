@@ -120,7 +120,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6663914892115786869, guid: 7f8d01f67cd6a8e4ca073afc759cf6ef, type: 3}
+  m_Sprite: {fileID: 4035959289877228764, guid: 002425ab902e8e8429cbe1104d39c2b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: adff4f5f8412668478db465b1bacfd51, type: 2}
+  m_Material: {fileID: 6200000, guid: 9f3f752ec1d94504cbd68daa482e5e7a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 14
+  jumpForce: 10
   groundCheck: {fileID: 2613612168963023902}
   groundCheckRadius: 0.2
   groundLayer:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PiroBros.Toxicity.ToxicitySystem
   maxToxicity: 100
   currentToxicity: 100
-  drainPerSecond: 5
+  drainPerSecond: 0
 --- !u!1 &5096882762767726754
 GameObject:
   m_ObjectHideFlags: 0

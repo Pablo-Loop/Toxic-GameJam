@@ -1,17 +1,15 @@
-﻿// GameManager.cs
-// Cerebro del juego. Persiste entre escenas usando DontDestroyOnLoad.
-// Maneja vidas, personajes, niveles e intentos en Nivel 2.
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using PiroBros.Core;
+using PiroBros.Toxicity;
 
 namespace PiroBros.Managers
 {
     public class GameManager : MonoBehaviour
     {
+
         // ─── SINGLETON ───
         public static GameManager Instance { get; private set; }
 
@@ -33,17 +31,18 @@ namespace PiroBros.Managers
 
         // Pool de instancias creadas en runtime
         private List<Core.Player> characterPool = new List<Core.Player>();
+
         // Todos los personajes instanciados
         private List<Core.Player> allInstances = new List<Core.Player>();
 
         // ─── ESCENAS ───
-        private const string SCENE_LEVEL1 = "Nivel1";
-        private const string SCENE_LEVEL2 = "Nivel2";
+        private const string SCENE_LEVEL1 = "Nivel 1";
+        private const string SCENE_LEVEL2 = "Nivel 2";
+
 
         // ────────────────────────────────────────────────────────────────────
         // UNITY
         // ────────────────────────────────────────────────────────────────────
-
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -63,16 +62,28 @@ namespace PiroBros.Managers
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
+
+
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+
         {
+
             // Buscar cámara en la nueva escena
+
             mainCamera = Camera.main;
+
             if (mainCamera != null)
+
                 cameraFollow = mainCamera.GetComponent<CameraFollow>();
 
+
+
             // Si hay personajes instanciados, reposicionarlos al spawn
+
             if (allInstances.Count > 0)
+
                 RepositionCharacters();
+
         }
 
         // ────────────────────────────────────────────────────────────────────
@@ -155,15 +166,15 @@ namespace PiroBros.Managers
             SceneManager.LoadScene(currentScene.name);
         }
 
-       private IEnumerator RespawnCurrentCharacter()
+        private IEnumerator RespawnCurrentCharacter()
         {
-             yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f);
 
             if (activeCharacter == null)
-             yield break;
+                yield break;
 
             // Obtener el punto de respawn de la escena actual
-             Vector3 spawnPosition = GetSpawnPosition();
+            Vector3 spawnPosition = GetSpawnPosition();
 
             // Mover al jugador al respawn
             activeCharacter.transform.position = spawnPosition;
@@ -171,11 +182,18 @@ namespace PiroBros.Managers
             // Revivir al jugador
             activeCharacter.Revive();
 
-             // Actualizar la cámara por seguridad
-             if (cameraFollow != null)
-            cameraFollow.SetTarget(activeCharacter.transform);
+            // Resetear toxicidad
+            ToxicitySystem toxicity = activeCharacter.GetComponent<ToxicitySystem>();
+            if (toxicity != null)
+            {
+                toxicity.ResetToxicity(); // O el nombre del método de reseteo en tu script ToxicitySystem
+            }
 
-             UpdateUI();
+            // Actualizar la cámara por seguridad
+            if (cameraFollow != null)
+                cameraFollow.SetTarget(activeCharacter.transform);
+
+            UpdateUI();
         }
 
         // ────────────────────────────────────────────────────────────────────

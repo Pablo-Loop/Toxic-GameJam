@@ -10,7 +10,7 @@ namespace PiroBros.Core
     {
         // ─── CONFIGURACIÓN ───
         protected int maxUses;                          // usos totales por partida
-        protected float cooldownDuration = 40f;        // segundos entre usos
+        protected float cooldownDuration = 10f;        // segundos entre usos
 
         // ─── ESTADO ───
         private int remainingUses;

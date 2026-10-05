@@ -4,30 +4,35 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private GameObject panelControles;
+    [SerializeField] private GameObject LevelSelectorCanva;
 
     // Iniciar juego
-    public void IniciarJuego()
+    public void StartGame()
     {
-        SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene("Level 1");
     }
 
     // Abrir ventana controles
-    public void AbrirControles()
+    public void LevelSelector()
     {
-        panelControles.SetActive(true);
+        LevelSelectorCanva.SetActive(true);
     }
 
     // Cerrar ventana controles
-    public void CerrarControles()
+    public void CloseLevelSelector()
     {
-        panelControles.SetActive(false);
+        LevelSelectorCanva.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Salir del juego
-    public void SalirJuego()
+    public void CloseGame()
     {
-        Debug.Log("Saliendo del juego...");
+        SceneManager.LoadScene("Level 4");
         Application.Quit();
     }
 }

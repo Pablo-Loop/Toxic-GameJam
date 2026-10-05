@@ -201,7 +201,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5777102788503210171, guid: 0bb46e736bdea3e48b59368b86a77732, type: 3}
+  m_Sprite: {fileID: -8531952876041661565, guid: 19df5579ba0638d4f883af3f9024a711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -227,7 +227,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: adff4f5f8412668478db465b1bacfd51, type: 2}
+  m_Material: {fileID: 6200000, guid: 9f3f752ec1d94504cbd68daa482e5e7a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PiroBros.Toxicity.ToxicitySystem
   maxToxicity: 100
   currentToxicity: 100
-  drainPerSecond: 5
+  drainPerSecond: 0
 --- !u!1 &8591332574635138587
 GameObject:
   m_ObjectHideFlags: 0

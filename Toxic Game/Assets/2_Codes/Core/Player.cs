@@ -154,9 +154,6 @@ namespace PiroBros.Core
         {
             isAlive = false;
             rb.linearVelocity = Vector2.zero;
-
-            if (animator != null)
-                animator.SetTrigger("Die");
         }
 
         public void Revive()
@@ -276,4 +273,6 @@ namespace PiroBros.Core
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
+
+
 }

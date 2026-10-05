@@ -9,13 +9,19 @@ namespace PiroBros.Core
     public class Flag : MonoBehaviour
     {
         private bool alreadyTriggered = false;
+        [SerializeField] private Animator animator;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (alreadyTriggered) return;
             if (!other.CompareTag("Player")) return;
-
             alreadyTriggered = true;
+
+            if (animator != null)
+            {
+                animator.SetBool("Finish", true);
+            }
+
             Managers.GameManager.Instance.OnFlagReached();
         }
     }

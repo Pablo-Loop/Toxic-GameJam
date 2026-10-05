@@ -5,15 +5,6 @@ TextureImporter:
   - first:
       213: 3177994642772005858
     second: Shakira_-_Idle_0
-  - first:
-      213: -6524030160577957862
-    second: Shakira_-_Idle_1
-  - first:
-      213: 5198799433568897723
-    second: Shakira_-_Idle_2
-  - first:
-      213: 7869737826633056810
-    second: Shakira_-_Idle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -110,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,9 +130,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 47
+        y: 2
         width: 24
-        height: 30
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,72 +143,6 @@ TextureImporter:
       bones: []
       spriteID: 2e315843a418a1c20800000000000000
       internalID: 3177994642772005858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shakira_-_Idle_1
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 47
-        width: 24
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a10f0de722df575a0800000000000000
-      internalID: -6524030160577957862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shakira_-_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 47
-        width: 24
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bba40685a88d52840800000000000000
-      internalID: 5198799433568897723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shakira_-_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 15
-        width: 24
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a220bef8bdce63d60800000000000000
-      internalID: 7869737826633056810
       vertices: []
       indices: 
       edges: []
@@ -237,9 +162,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Shakira_-_Idle_0: 3177994642772005858
-      Shakira_-_Idle_1: -6524030160577957862
-      Shakira_-_Idle_2: 5198799433568897723
-      Shakira_-_Idle_3: 7869737826633056810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
