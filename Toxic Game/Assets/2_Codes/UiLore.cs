@@ -16,6 +16,11 @@ public class UiLore : MonoBehaviour
     public void LastLore()
     {
         Lore2.SetActive(false);
-        HUD.SetActive(true);
+
+        // En lugar de HUD.SetActive(true), llamamos al UIManager:
+        if (PiroBros.Managers.UIManager.Instance != null)
+        {
+            PiroBros.Managers.UIManager.Instance.ShowCharacterSelect();
+        }
     }
 }

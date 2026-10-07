@@ -1,14 +1,4 @@
-﻿// UIManager.cs
-
-// Controla todo lo visual del HUD.
-
-// Recibe información de otros sistemas y actualiza la UI.
-
-// No toma decisiones de juego — solo muestra información.
-
-
-
-using UnityEngine;
+﻿using UnityEngine;
 
 using UnityEngine.UI;
 
@@ -126,7 +116,6 @@ namespace PiroBros.Managers
 
             // Persistir entre escenas igual que el GameManager
 
-            DontDestroyOnLoad(gameObject);
 
 
 
@@ -157,33 +146,21 @@ namespace PiroBros.Managers
 
 
         private void Start()
-
         {
-
-            // Limpiar listeners anteriores para evitar acumulación
-
+            // Asignar eventos de botones de personaje
             for (int i = 0; i < characterButtons.Length; i++)
-
             {
-
                 characterButtons[i].onClick.RemoveAllListeners();
-
                 int index = i;
-
                 characterButtons[i].onClick.AddListener(() => OnCharacterSelected(index));
-
             }
 
-
-
-            // Ocultar todo excepto la selección de personaje
-
             HideGameOver();
-
             HideVictory();
 
-            ShowCharacterSelect();
-
+            // El panel de personaje inicia OCULTO mientras el Lore se muestra
+            if (characterSelectPanel != null)
+                characterSelectPanel.SetActive(false);
         }
 
 
